@@ -1,30 +1,55 @@
-const canvas = document.getElementById('canvas').getContext('2d')
-canvas.translate(300, 200)
-canvas.beginPath()
-canvas.moveTo(-300, 0)
-canvas.lineTo(300, 0)
-canvas.moveTo(0, -200)
-canvas.lineTo(0, 200)
-canvas.closePath()
-canvas.stroke()
-canvas.scale(6, -6)
-canvas.fillStyle = '#000080'
-canvas.strokeStyle = '#800000'
+class Dot{
+    constructor(x, y, t) {
+        this.x = x; 
+        this.y = y;
+        this.t = t || 0.5;
+    }
 
-const punto = (x, y) => {
-    const s = 0.1
-    canvas.fillRect(x - s / 2, y - s / 2, s, s)
+    draw(){
+        const s = this.t;
+        canvas.fillRect(this.x - s / 2, this.y - s / 2, s, s);
+    }
+
+    values(){
+        return {x: this.x, y: this.y};
+    }
 }
 
-const linea = (x0, y0, x1, y1) => {
-    canvas.beginPath()
-    canvas.moveTo(x0, y0)
-    canvas.lineTo(x1, y1)
-    canvas.stroke()
-    canvas.closePath()
+class Line{
+    constructor(xy1, xy2) {
+        this.x1 = xy1.x;
+        this.y1 = xy1.y;
+        this.x2 = xy2.x;
+        this.y2 = xy2.y;;
+    }
+
+    draw(){
+        canvas.beginPath();
+        canvas.moveTo(this.x1, this.y1);
+        canvas.lineTo(this.x2, this.y2);
+        canvas.stroke();
+        canvas.closePath();
+    }
+
+    values(){
+        return {x: this.x, y: this.y};
+    }
 }
 
-const colore = (c) => {
-    canvas.fillStyle = c
-    canvas.strokeStyle = c
+function color (c){
+    canvas.fillStyle = c;
+    canvas.strokeStyle = c;
 }
+
+const canvas = document.getElementById('canvas').getContext('2d');
+canvas.translate(300, 200);
+canvas.beginPath();
+canvas.moveTo(-300, 0);
+canvas.lineTo(300, 0);
+canvas.moveTo(0, -200);
+canvas.lineTo(0, 200);
+canvas.closePath();
+canvas.stroke();
+canvas.scale(6, -6);
+canvas.fillStyle = '#000FF';
+canvas.strokeStyle = '#0000FF';

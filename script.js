@@ -3,11 +3,11 @@ Disegnare il grafico sull’intervallo [-50,50] per la funzione f(x) =
 x/2-1
 */
 
-// let p, range = 50;
+// let p, range = {"a" : -50, "b" : 50}, step = 0.01;
 
-// for (let x = -range; x <= range; x += 0.01){
+// for (let x = range.a; x <= range.b; x += , step){
 //   p = x / 2 + 1;
-//   punto(x, p);
+//   dot(x, p);
 // }
 
 /*-----------------------------------------------------------------------------*/
@@ -19,13 +19,13 @@ Disegnare il grafico e stimare il minimo della funzione f(x) =
 Sperimentare con la precisione per ottenere il minimo
 */
 
-// let min = Infinity, p, range = 50;
+// let min = Infinity, p, range = {"a" : -50, "b" : 50}, step = 0.01;
 
-// for (let x = -range; x <= range; x += 0.01){
+// for (let x = range.a; x <= range.b; x += step){
 //   p = Math.pow((x + 0.1), 2);
 //   if (p < min)
 //     min = p;
-//   punto(x, p);
+//   dot(x, p);
 // }
 
 // console.log('Min:', min);
@@ -37,30 +37,54 @@ Disegnare i grafici sull’intervallo [0,50] per le funzioni f(x)=log(x),
 f(x) = 3x+2, f(x) = x2, f(x)=2x. Quale funzione cresce più velocemente?
 */
 
-let p, range = 50;
+// let p, range = {"a" : 0, "b" : 50}, step = 0.01;
 
-for (let x = 0; x <= range; x += 0.01){
-  // Log(x)
-  colore('blue');
-  p = Math.log(x);
-  punto(x, p);
+// for (let x = range.a; x <= range.b; x += step){
+//   // Log(x)
+//   color('blue');
+//   p = Math.log(x);
+//   dot(x, p);
 
-  // 3X+2
-  colore('red');
-  p = (3 * x + 2);
-  punto(x, p);
+//   // 3X+2
+//   color('red');
+//   p = (3 * x + 2);
+//   dot(x, p);
 
-  // X^2
-  colore('green');
-  p = Math.pow(x, 2);
-  punto(x, p);
+//   // X^2
+//   color('green');
+//   p = Math.pow(x, 2);
+//   dot(x, p);
 
-  // 2^X
-  colore('yellow');
-  p = Math.pow(2, x);
-  punto(x, p);
-}
+//   // 2^X
+//   color('yellow');
+//   p = Math.pow(2, x);
+//   dot(x, p);
+// }
 
-console.log('Min:', min);
+/*-----------------------------------------------------------------------------*/
+
+/*
+Disegnare il grafici di una funzione utilizzando la primitiva linea
+*/
+
+// let p, range = {"a" : -50, "b" : 50}, step = 0.01, x0, f = x => Math.log(Math.atan(Math.abs(x) / (x + 1)));
+
+// for (let x = range.a; x <= range.b; x += step){
+//   if (x0 != undefined) line(x, f(x), x0, f(x0));
+//   x0 = x;
+// }
+
+/*-----------------------------------------------------------------------------*/
+
+/*
+calcolo degli zeri di una funzione (teorema degli zeri)
+*/
+
+// function zero(f, r, s){
+//   let p = (r.b - r.a) / 2;  
+//   if ()
+// }
+
+// zero(x => Math.log(Math.atan(Math.abs(x) / (x + 1))), {"a" : -50, "b" : 50}, 0.01)
 
 /*-----------------------------------------------------------------------------*/
